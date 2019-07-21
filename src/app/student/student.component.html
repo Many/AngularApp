@@ -1,0 +1,70 @@
+<div class="panel-content">
+	<div class="fluid-cont">	
+		<div class="container-main">
+			<div class="title">
+					<h4>Student Detail</h4>  
+			</div>
+			<div class="header-main">
+				<form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" class="form-horizontal ng-untouched ng-pristine ng-valid" novalidate>
+					<div class="row">
+						<div class="col-sm-10">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<div class="row">											
+											<label class="col-sm-2 control-label">Name</label>
+											<div class="col-md-10">
+												<input class="form-control" name="name" placeholder="Filter by name" type="text" formControlName="name" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+											<div class="row">											
+												<label class="col-sm-2 control-label">Subject</label>
+												<div class="col-md-10">
+													<input class="form-control" name="subject" placeholder="Filter by subject" type="text" formControlName="subject"/>
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<div class="row">											
+												<label class="col-sm-2 control-label">Range</label>
+												<div class="col-md-10">
+													<input class="form-control" name="range" placeholder="Filter by range" type="number" formControlName="range"/>
+												</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-2">
+								<div class="form-group">
+									<button class="btn btn-fill btn-info" type="submit">Filter</button>
+								</div>
+							</div>
+					</div>
+				</form>
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th>Student</th>
+							<th *ngFor = "let sub of subjects" scope="col">{{sub.name}} {{sub.Name}}</th>
+						</tr>
+					</thead>	
+					<tbody>
+						<tr *ngFor = "let student of students">
+							<td scope="row">{{student.Name}}</td>
+							<td *ngFor = "let subject of student.Subjects">
+								{{subject.Grade}}  
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
